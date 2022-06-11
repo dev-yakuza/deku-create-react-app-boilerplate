@@ -1,0 +1,10 @@
+{
+  "words": ["deku", "webfonts", "TTFB", "lefthook", "stylelint"],
+  "ignorePaths": [
+    "__snapshots__",
+    "package.json",
+    "package-lock.json",
+    "node_modules",
+    "lefthook.yml"
+  ]
+}
