@@ -5,5 +5,8 @@
       "files": ["**/*.tsx"],
       "customSyntax": "@stylelint/postcss-css-in-js"
     }
-  ]
+  ],
+  "rules": {
+    "function-no-unknown": [true, { "ignoreFunctions": ["/\\${/"] }]
+  }
 }
