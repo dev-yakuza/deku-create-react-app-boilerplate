@@ -21,6 +21,8 @@ jobs:
         run: npm run lint:css
       - name: remark-lint
         run: npm run lint:md
+      - name: remark-lint
+        run: npm run lint:md
       - name: CSpell
         run: npm run check:spell
       - name: Test
