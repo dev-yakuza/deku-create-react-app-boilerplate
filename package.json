@@ -81,7 +81,7 @@
     "@stylelint/postcss-css-in-js": "^0.38.0",
     "@types/react-router-dom": "^5.3.3",
     "@typescript-eslint/eslint-plugin": "^5.30.4",
-    "@typescript-eslint/parser": "^5.30.4",
+    "@typescript-eslint/parser": "^5.30.6",
     "babel-plugin-named-exports-order": "^0.0.2",
     "cspell": "^6.2.3",
     "eslint": "^8.19.0",
