@@ -83,7 +83,7 @@
     "@typescript-eslint/eslint-plugin": "^5.36.2",
     "@typescript-eslint/parser": "^5.36.2",
     "babel-plugin-named-exports-order": "^0.0.2",
-    "cspell": "^6.8.1",
+    "cspell": "^6.9.1",
     "eslint": "^8.23.1",
     "eslint-plugin-functional": "^4.3.1",
     "eslint-plugin-react": "^7.31.8",
