@@ -1,23 +1,28 @@
 module.exports = {
   env: {
     browser: true,
-    es2021: true
+    es2021: true,
   },
-  extends: ['eslint:recommended', 'plugin:react/recommended', 'plugin:@typescript-eslint/recommended', 'plugin:storybook/recommended'],
+  extends: [
+    'eslint:recommended',
+    'plugin:react/recommended',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:storybook/recommended',
+  ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
-      jsx: true
+      jsx: true,
     },
     ecmaVersion: 12,
     sourceType: 'module',
-    project: './tsconfig.json'
+    project: './tsconfig.json',
   },
-  plugins: ['react', '@typescript-eslint', 'functional'],
+  plugins: ['react', '@typescript-eslint', 'functional', 'import'],
   settings: {
     react: {
-      version: 'detect'
-    }
+      version: 'detect',
+    },
   },
   rules: {
     // General
@@ -28,10 +33,13 @@ module.exports = {
     '@typescript-eslint/explicit-member-accessibility': 'off',
     '@typescript-eslint/indent': 'off',
     '@typescript-eslint/member-delimiter-style': 'off',
-    '@typescript-eslint/no-confusing-void-expression': ['error', {
-      ignoreArrowShorthand: true,
-      ignoreVoidOperator: true
-    }],
+    '@typescript-eslint/no-confusing-void-expression': [
+      'error',
+      {
+        ignoreArrowShorthand: true,
+        ignoreVoidOperator: true,
+      },
+    ],
     'no-duplicate-imports': 'off',
     '@typescript-eslint/no-duplicate-imports': 'error',
     '@typescript-eslint/no-implicit-any-catch': 'error',
@@ -55,9 +63,12 @@ module.exports = {
     'no-unused-expressions': 'off',
     '@typescript-eslint/no-unused-expressions': 'error',
     '@typescript-eslint/no-unused-vars': 'off',
-    '@typescript-eslint/no-use-before-define': ['error', {
-      variables: false
-    }],
+    '@typescript-eslint/no-use-before-define': [
+      'error',
+      {
+        variables: false,
+      },
+    ],
     '@typescript-eslint/prefer-enum-initializers': 'error',
     '@typescript-eslint/prefer-for-of': 'error',
     '@typescript-eslint/prefer-includes': 'error',
@@ -81,10 +92,32 @@ module.exports = {
     'react/prop-types': 'off',
     'react/react-in-jsx-scope': 'off',
     // Functional
-    'functional/prefer-readonly-type': ['warn', {
-      allowLocalMutation: true,
-      allowMutableReturnType: true,
-      ignoreClass: true
-    }]
-  }
-};
+    'functional/prefer-readonly-type': [
+      'warn',
+      {
+        allowLocalMutation: true,
+        allowMutableReturnType: true,
+        ignoreClass: true,
+      },
+    ],
+    'import/order': [
+      'error',
+      {
+        groups: ['builtin', 'external', 'internal'],
+        pathGroups: [
+          {
+            pattern: '{react,react-dom/**}',
+            group: 'external',
+            position: 'before',
+          },
+        ],
+        pathGroupsExcludedImportTypes: ['react'],
+        'newlines-between': 'always',
+        alphabetize: {
+          order: 'asc',
+          caseInsensitive: true,
+        },
+      },
+    ],
+  },
+}
