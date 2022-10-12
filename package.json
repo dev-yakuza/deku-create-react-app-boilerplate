@@ -109,5 +109,8 @@
         "mixed"
       ]
     ]
+  },
+  "jest": {
+    "clearMocks": true
   }
 }
