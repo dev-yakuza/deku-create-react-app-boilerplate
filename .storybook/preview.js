@@ -1,4 +1,5 @@
 import { ThemeProvider } from '@mui/material'
+import { withRouter } from 'storybook-addon-react-router-v6'
 import { theme } from '../src/utils/theme'
 
 export const parameters = {
@@ -17,4 +18,5 @@ export const decorators = [
       <Story />
     </ThemeProvider>
   ),
+  withRouter,
 ]
