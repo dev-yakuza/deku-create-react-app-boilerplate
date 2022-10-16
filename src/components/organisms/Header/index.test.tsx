@@ -1,6 +1,10 @@
-import { render } from '@testing-library/react'
-import { BrowserRouter } from 'react-router-dom'
-import { mockAppBar } from 'utils/test/mocks'
+import { render, screen, fireEvent } from '@testing-library/react'
+import { createMemoryHistory } from 'history'
+import {
+  BrowserRouter,
+  unstable_HistoryRouter as HistoryRouter,
+} from 'react-router-dom'
+import { mockAppBar } from 'utils/test'
 
 import { Header } from '.'
 
@@ -36,5 +40,20 @@ describe('<Header />', () => {
     expect(appTitle.props.children).toBe('Blog App')
 
     expect(container).toMatchSnapshot()
+  })
+
+  it('Go to the root page when the app title is clicked', () => {
+    const mockPush = jest.fn()
+    const history = createMemoryHistory({ initialEntries: ['/posts/1'] })
+    history.push = mockPush
+
+    render(
+      <HistoryRouter history={history}>
+        <Header />
+      </HistoryRouter>,
+    )
+
+    fireEvent.click(screen.getByText('Blog App'))
+    expect(mockPush.mock.calls[0][0].pathname).toBe('/')
   })
 })
