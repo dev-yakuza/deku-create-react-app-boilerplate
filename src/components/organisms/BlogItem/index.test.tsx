@@ -1,10 +1,10 @@
 import { render } from '@testing-library/react'
-import { mockGrid } from 'utils/test/mocks'
+import { mockGrid } from 'utils/test'
 
 import { BlogItem } from '.'
 
 describe('<BlogItem />', () => {
-  it('Rendered well', async () => {
+  it('Rendered well', () => {
     const { container } = render(
       <BlogItem
         title="This is the blog title."
