@@ -1,5 +1,5 @@
-import styled from '@emotion/styled'
 import { Grid, Typography } from '@mui/material'
+import { styled } from '@mui/system'
 
 const Container = styled(Grid)`
   background-color: #fff;
