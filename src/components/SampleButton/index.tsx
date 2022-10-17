@@ -3,10 +3,9 @@ import { Button } from '@mui/material'
 import type { ButtonProps } from '@mui/material'
 
 const StyledButton = styled(
-  ({
-    backgroundColor,
-    ...props
-  }: Pick<Props, 'backgroundColor'> & ButtonProps) => <Button {...props} />,
+  (props: Pick<Props, 'backgroundColor'> & ButtonProps) => (
+    <Button {...props} />
+  ),
 )`
   ${(props) =>
     props.backgroundColor != null
