@@ -1,5 +1,6 @@
 import { Grid, Typography } from '@mui/material'
 import { styled } from '@mui/system'
+import { Link } from 'components/atoms'
 
 const Container = styled(Grid)`
   background-color: #fff;
@@ -10,15 +11,18 @@ const Container = styled(Grid)`
 `
 
 interface Props {
+  readonly id: number
   readonly title: string
   readonly contents: string
 }
 
-export const BlogItem = ({ title, contents }: Props) => {
+export const BlogItem = ({ id, title, contents }: Props) => {
   return (
     <Container item xs={12}>
-      <Typography>{title}</Typography>
-      <Typography>{contents}</Typography>
+      <Link to={`/posts/${id}`}>
+        <Typography>{title}</Typography>
+        <Typography>{contents}</Typography>
+      </Link>
     </Container>
   )
 }
