@@ -15,6 +15,12 @@ exports[`<BlogItem /> Rendered well 1`] = `
 }
 
 .emotion-1 {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: initial;
+}
+
+.emotion-2 {
   margin: 0;
   font-family: "Roboto","Helvetica","Arial",sans-serif;
   font-weight: 400;
@@ -27,16 +33,21 @@ exports[`<BlogItem /> Rendered well 1`] = `
   <div
     class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 emotion-0"
   >
-    <p
-      class="MuiTypography-root MuiTypography-body1 emotion-1"
+    <a
+      class="emotion-1"
+      href="/posts/1"
     >
-      This is the blog title.
-    </p>
-    <p
-      class="MuiTypography-root MuiTypography-body1 emotion-1"
-    >
-      This is the blog contents.
-    </p>
+      <p
+        class="MuiTypography-root MuiTypography-body1 emotion-2"
+      >
+        This is the blog title.
+      </p>
+      <p
+        class="MuiTypography-root MuiTypography-body1 emotion-2"
+      >
+        This is the blog contents.
+      </p>
+    </a>
   </div>
 </div>
 `;
