@@ -1,21 +1,15 @@
 import { AppBar, Toolbar, Typography } from '@mui/material'
-import { styled } from '@mui/system'
-import { Link } from 'react-router-dom'
-
-const StyledLink = styled(Link)`
-  text-decoration: none;
-  color: initial;
-`
+import { Link } from 'components/atoms'
 
 export const Header = () => {
   return (
     <AppBar position="static" elevation={0} style={{ backgroundColor: '#FFF' }}>
       <Toolbar sx={{ flexWrap: 'wrap' }}>
-        <StyledLink to="/">
+        <Link to="/">
           <Typography variant="h6" color="inherit" noWrap sx={{ flexGrow: 1 }}>
             Blog App
           </Typography>
-        </StyledLink>
+        </Link>
       </Toolbar>
     </AppBar>
   )
