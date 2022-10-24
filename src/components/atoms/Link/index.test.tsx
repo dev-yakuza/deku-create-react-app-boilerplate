@@ -15,7 +15,11 @@ describe('<Link />', () => {
       </BrowserRouter>,
     )
 
-    expect(screen.queryByText('test link')).toBeInTheDocument()
+    const link = screen.getByText('test link')
+    expect(link).toHaveStyle(`
+      text-decoration: none;
+      color: initial;
+    `)
 
     expect(container).toMatchSnapshot()
   })
