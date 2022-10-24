@@ -1,10 +1,11 @@
 {
-  "words": ["deku", "webfonts", "TTFB", "lefthook", "stylelint"],
+  "words": ["deku", "webfonts", "TTFB", "lefthook", "stylelint", "tanstack"],
   "ignorePaths": [
     "__snapshots__",
     "package.json",
     "package-lock.json",
     "node_modules",
-    "lefthook.yml"
+    "lefthook.yml",
+    "src/api/posts/mockData/posts.json"
   ]
 }
