@@ -17,8 +17,8 @@ describe('<Header />', () => {
     )
 
     const appBar = mockAppBar.mock.calls[0][0]
-    expect(appBar.position).toBe('static')
-    expect(appBar.elevation).toBe(0)
+    expect(appBar.position).toBe('fixed')
+    expect(appBar.elevation).toBe(4)
     expect(appBar.style).toEqual({
       backgroundColor: '#FFF',
     })
