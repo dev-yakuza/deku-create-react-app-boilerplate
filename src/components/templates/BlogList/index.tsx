@@ -2,7 +2,7 @@ import AddIcon from '@mui/icons-material/Add'
 import { Grid } from '@mui/material'
 import { FloatingActionLink } from 'components/atoms'
 import { BlogItem } from 'components/organisms'
-import type { Props as Post } from 'components/organisms/BlogItem'
+import type { Post } from 'types'
 
 interface Props {
   readonly posts?: ReadonlyArray<Post>
@@ -16,7 +16,7 @@ const BlogList = ({ posts = [] }: Props) => {
           key={blog.id}
           id={blog.id}
           title={blog.title}
-          contents={blog.contents}
+          body={blog.body}
         />
       ))}
       <FloatingActionLink link="/posts/add">

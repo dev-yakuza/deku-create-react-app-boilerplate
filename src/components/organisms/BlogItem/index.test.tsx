@@ -15,7 +15,7 @@ describe('<BlogItem />', () => {
         <BlogItem
           id={1}
           title="This is the blog title."
-          contents="This is the blog contents."
+          body="This is the blog contents."
         />
       </BrowserRouter>,
     )
@@ -49,7 +49,7 @@ describe('<BlogItem />', () => {
         <BlogItem
           id={2}
           title="This is the blog title."
-          contents="This is the blog contents."
+          body="This is the blog contents."
         />
       </HistoryRouter>,
     )
