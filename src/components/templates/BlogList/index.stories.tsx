@@ -16,13 +16,13 @@ export const Default = Template.bind({})
 export const WithData = Template.bind({})
 WithData.args = {
   posts: [
-    { id: 1, title: 'blog title 1', contents: 'blog contents 1' },
-    { id: 2, title: 'blog title 2', contents: 'blog contents 2' },
-    { id: 3, title: 'blog title 3', contents: 'blog contents 3' },
-    { id: 4, title: 'blog title 4', contents: 'blog contents 4' },
-    { id: 5, title: 'blog title 5', contents: 'blog contents 5' },
-    { id: 6, title: 'blog title 6', contents: 'blog contents 6' },
-    { id: 7, title: 'blog title 7', contents: 'blog contents 7' },
-    { id: 8, title: 'blog title 8', contents: 'blog contents 8' },
+    { userId: 1, id: 1, title: 'blog title 1', body: 'blog contents 1' },
+    { userId: 1, id: 2, title: 'blog title 2', body: 'blog contents 2' },
+    { userId: 1, id: 3, title: 'blog title 3', body: 'blog contents 3' },
+    { userId: 1, id: 4, title: 'blog title 4', body: 'blog contents 4' },
+    { userId: 1, id: 5, title: 'blog title 5', body: 'blog contents 5' },
+    { userId: 1, id: 6, title: 'blog title 6', body: 'blog contents 6' },
+    { userId: 1, id: 7, title: 'blog title 7', body: 'blog contents 7' },
+    { userId: 1, id: 8, title: 'blog title 8', body: 'blog contents 8' },
   ],
 }
