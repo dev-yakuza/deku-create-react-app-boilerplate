@@ -1,3 +1,5 @@
 export * from './mocks/mui'
 export * from './mocks/reactRouterDom'
+export * from './mocks/components/atoms'
+export * from './mocks/components/templates'
 export * from './reactQuery'
