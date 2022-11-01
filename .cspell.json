@@ -6,6 +6,7 @@
     "package-lock.json",
     "node_modules",
     "lefthook.yml",
-    "src/api/posts/mockData/posts.json"
+    "src/api/posts/mockData/posts.json",
+    "src/api/posts/mockData/post.json"
   ]
 }
