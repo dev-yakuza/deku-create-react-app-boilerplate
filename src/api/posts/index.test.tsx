@@ -71,7 +71,7 @@ describe('[API] useGetPost', () => {
     )
     let result:
       | {
-          current: UseQueryResult<ReadonlyArray<Post>>
+          current: UseQueryResult<Post>
         }
       | undefined
 
@@ -95,7 +95,7 @@ describe('[API] useGetPost', () => {
     )
     let result:
       | {
-          current: UseQueryResult<ReadonlyArray<Post>>
+          current: UseQueryResult<Post>
         }
       | undefined
 
