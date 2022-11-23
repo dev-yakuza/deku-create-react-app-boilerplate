@@ -15,8 +15,10 @@ let mockResponse: { readonly data: Post | undefined } = {
   data: undefined,
 }
 jest.mock('api/posts', () => ({
-  useGetPost: ({ id }: { readonly id: number | undefined }) =>
-    typeof id === 'number' ? mockResponse : { data: undefined },
+  useGetPost: ({ id }: { readonly id: string | undefined }) =>
+    typeof id === 'string' && !isNaN(Number.parseInt(id))
+      ? mockResponse
+      : { data: undefined },
 }))
 let history = createMemoryHistory({ initialEntries: ['/posts/1'] })
 
