@@ -1,0 +1,73 @@
+import { render } from '@testing-library/react'
+import mockPostData from 'api/posts/mockData/post.json'
+import { createMemoryHistory } from 'history'
+import {
+  Routes,
+  Route,
+  unstable_HistoryRouter as HistoryRouter,
+} from 'react-router-dom'
+import type { Post } from 'types'
+import { mockBlogDetail } from 'utils/test'
+
+import { PostDetail } from '.'
+
+let mockResponse: { readonly data: Post | undefined } = {
+  data: undefined,
+}
+jest.mock('api/posts', () => ({
+  useGetPost: ({ id }: { readonly id: number | undefined }) =>
+    typeof id === 'number' ? mockResponse : { data: undefined },
+}))
+let history = createMemoryHistory({ initialEntries: ['/posts/1'] })
+
+describe('PostDetail', () => {
+  it('rendered well with data', () => {
+    mockResponse = { data: mockPostData }
+
+    const { container } = render(
+      <HistoryRouter history={history}>
+        <Routes>
+          <Route path="/posts/:id" element={<PostDetail />} />
+        </Routes>
+      </HistoryRouter>,
+    )
+
+    expect(mockBlogDetail.mock.calls.length).toBe(1)
+    expect(mockBlogDetail.mock.calls[0][0].post).toBe(mockPostData)
+
+    expect(container).toMatchSnapshot()
+  })
+
+  it('rendered well without data', () => {
+    mockResponse = { data: undefined }
+
+    const { container } = render(
+      <HistoryRouter history={history}>
+        <Routes>
+          <Route path="/posts/:id" element={<PostDetail />} />
+        </Routes>
+      </HistoryRouter>,
+    )
+
+    expect(mockBlogDetail.mock.calls.length).toBe(1)
+    expect(mockBlogDetail.mock.calls[0][0].post).toBe(undefined)
+
+    expect(container).toMatchSnapshot()
+  })
+
+  it('rendered well with wrong ID query', () => {
+    mockResponse = { data: mockPostData }
+    history = createMemoryHistory({ initialEntries: ['/posts/aaa'] })
+
+    render(
+      <HistoryRouter history={history}>
+        <Routes>
+          <Route path="/posts/:id" element={<PostDetail />} />
+        </Routes>
+      </HistoryRouter>,
+    )
+
+    expect(mockBlogDetail.mock.calls.length).toBe(1)
+    expect(mockBlogDetail.mock.calls[0][0].post).toBe(undefined)
+  })
+})
