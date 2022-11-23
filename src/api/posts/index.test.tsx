@@ -76,7 +76,7 @@ describe('[API] useGetPost', () => {
       | undefined
 
     await act(async () => {
-      result = renderHook(() => useGetPost({ id: 1 }), {
+      result = renderHook(() => useGetPost({ id: '1' }), {
         wrapper,
       }).result
     })
@@ -100,7 +100,7 @@ describe('[API] useGetPost', () => {
       | undefined
 
     await act(async () => {
-      result = renderHook(() => useGetPost({ id: 1 }), {
+      result = renderHook(() => useGetPost({ id: '1' }), {
         wrapper,
       }).result
     })
@@ -112,7 +112,7 @@ describe('[API] useGetPost', () => {
     expect((result?.current.error as AxiosError).response?.status).toBe(400)
   })
 
-  it('idle', async () => {
+  it('idle with no ID', async () => {
     const wrapper = ({ children }: { children: JSX.Element }) => (
       <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
     )
@@ -123,7 +123,26 @@ describe('[API] useGetPost', () => {
       | undefined
 
     await act(async () => {
-      result = renderHook(() => useGetPost({ id: null }), {
+      result = renderHook(() => useGetPost({ id: undefined }), {
+        wrapper,
+      }).result
+    })
+
+    expect(result?.current.fetchStatus).toBe('idle')
+  })
+
+  it('idle with wrong ID', async () => {
+    const wrapper = ({ children }: { children: JSX.Element }) => (
+      <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+    )
+    let result:
+      | {
+          current: UseQueryResult<Post>
+        }
+      | undefined
+
+    await act(async () => {
+      result = renderHook(() => useGetPost({ id: 'abcd' }), {
         wrapper,
       }).result
     })

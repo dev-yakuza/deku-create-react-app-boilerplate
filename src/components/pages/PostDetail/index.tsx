@@ -4,11 +4,7 @@ import { useParams } from 'react-router-dom'
 
 export const PostDetail = () => {
   const { id } = useParams()
-  const postID =
-    typeof id === 'string' && !isNaN(Number.parseInt(id))
-      ? Number.parseInt(id)
-      : null
-  const { data } = useGetPost({ id: postID })
+  const { data } = useGetPost({ id })
 
   return <BlogDetail post={data} />
 }
