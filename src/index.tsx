@@ -3,20 +3,34 @@ import ReactDOM from 'react-dom/client'
 
 import { ThemeProvider } from '@mui/material'
 import './index.css'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { BrowserRouter as Router } from 'react-router-dom'
+import { RecoilRoot } from 'recoil'
 import { theme } from 'utils/theme'
 
 import App from './App'
 import reportWebVitals from './reportWebVitals'
 
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      retry: false,
+    },
+  },
+})
+
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 root.render(
   <React.StrictMode>
-    <Router>
-      <ThemeProvider theme={theme}>
-        <App />
-      </ThemeProvider>
-    </Router>
+    <ThemeProvider theme={theme}>
+      <RecoilRoot>
+        <QueryClientProvider client={queryClient}>
+          <Router>
+            <App />
+          </Router>
+        </QueryClientProvider>
+      </RecoilRoot>
+    </ThemeProvider>
   </React.StrictMode>,
 )
 
