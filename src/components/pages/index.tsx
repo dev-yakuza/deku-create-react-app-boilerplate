@@ -1,2 +1,2 @@
 export * from './BlogListPage'
-export * from './PostDetail'
+export * from './PostDetailPage'

@@ -1,10 +1,10 @@
 const mockBlogListPage = jest.fn()
-const mockPostDetail = jest.fn()
+const mockPostDetailPage = jest.fn()
 
 jest.mock('components/pages', () => {
   const {
     BlogListPage: BlogListPageComponent,
-    PostDetail: PostDetailComponent,
+    PostDetailPage: PostDetailPageComponent,
     ...rest
   } = jest.requireActual('components/pages')
 
@@ -13,16 +13,16 @@ jest.mock('components/pages', () => {
     return <BlogListPageComponent {...props} />
   }
 
-  const PostDetail = (props: typeof PostDetailComponent) => {
-    mockPostDetail(props)
-    return <PostDetailComponent {...props} />
+  const PostDetailPage = (props: typeof PostDetailPageComponent) => {
+    mockPostDetailPage(props)
+    return <PostDetailPageComponent {...props} />
   }
 
   return {
     BlogListPage,
-    PostDetail,
+    PostDetailPage,
     ...rest,
   }
 })
 
-export { mockBlogListPage, mockPostDetail }
+export { mockBlogListPage, mockPostDetailPage }
