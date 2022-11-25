@@ -9,7 +9,7 @@ import {
 import type { Post } from 'types'
 import { mockBlogDetail } from 'utils/test'
 
-import { PostDetail } from '.'
+import { PostDetailPage } from '.'
 
 let mockResponse: { readonly data: Post | undefined } = {
   data: undefined,
@@ -22,14 +22,14 @@ jest.mock('api/posts', () => ({
 }))
 let history = createMemoryHistory({ initialEntries: ['/posts/1'] })
 
-describe('PostDetail', () => {
+describe('<PostDetailPage />', () => {
   it('rendered well with data', () => {
     mockResponse = { data: mockPostData }
 
     const { container } = render(
       <HistoryRouter history={history}>
         <Routes>
-          <Route path="/posts/:id" element={<PostDetail />} />
+          <Route path="/posts/:id" element={<PostDetailPage />} />
         </Routes>
       </HistoryRouter>,
     )
@@ -46,7 +46,7 @@ describe('PostDetail', () => {
     const { container } = render(
       <HistoryRouter history={history}>
         <Routes>
-          <Route path="/posts/:id" element={<PostDetail />} />
+          <Route path="/posts/:id" element={<PostDetailPage />} />
         </Routes>
       </HistoryRouter>,
     )
@@ -64,7 +64,7 @@ describe('PostDetail', () => {
     render(
       <HistoryRouter history={history}>
         <Routes>
-          <Route path="/posts/:id" element={<PostDetail />} />
+          <Route path="/posts/:id" element={<PostDetailPage />} />
         </Routes>
       </HistoryRouter>,
     )

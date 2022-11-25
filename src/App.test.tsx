@@ -7,7 +7,7 @@ import {
   mockBlogListPage,
   mockHeader,
   mockPageContainer,
-  mockPostDetail,
+  mockPostDetailPage,
 } from 'utils/test'
 
 import App from './App'
@@ -31,7 +31,7 @@ describe('<App />', () => {
     expect(mockHeader.mock.calls.length).toBe(1)
 
     expect(mockBlogListPage.mock.calls.length).toBe(1)
-    expect(mockPostDetail.mock.calls.length).toBe(0)
+    expect(mockPostDetailPage.mock.calls.length).toBe(0)
   })
 
   test('/posts/:id', () => {
@@ -47,6 +47,6 @@ describe('<App />', () => {
     expect(mockHeader.mock.calls.length).toBe(1)
 
     expect(mockBlogListPage.mock.calls.length).toBe(0)
-    expect(mockPostDetail.mock.calls.length).toBe(1)
+    expect(mockPostDetailPage.mock.calls.length).toBe(1)
   })
 })

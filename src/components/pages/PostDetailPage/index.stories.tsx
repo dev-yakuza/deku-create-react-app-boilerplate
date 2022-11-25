@@ -1,13 +1,13 @@
 import type { ComponentStory, ComponentMeta } from '@storybook/react'
 
-import { PostDetail } from '.'
+import { PostDetailPage } from '.'
 
 export default {
-  title: 'Pages/PostDetail',
-  component: PostDetail,
-} as ComponentMeta<typeof PostDetail>
+  title: 'Pages/PostDetailPage',
+  component: PostDetailPage,
+} as ComponentMeta<typeof PostDetailPage>
 
-const Template: ComponentStory<typeof PostDetail> = () => <PostDetail />
+const Template: ComponentStory<typeof PostDetailPage> = () => <PostDetailPage />
 
 export const NoData = Template.bind({})
 
