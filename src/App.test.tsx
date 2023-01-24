@@ -2,7 +2,7 @@ import { render } from '@testing-library/react'
 import mockPostData from 'api/posts/mockData/post.json'
 import mockPostsData from 'api/posts/mockData/posts.json'
 import { createMemoryHistory } from 'history'
-import { unstable_HistoryRouter as HistoryRouter } from 'react-router-dom'
+import { Router } from 'react-router-dom'
 import {
   mockBlogListPage,
   mockHeader,
@@ -22,9 +22,9 @@ describe('<App />', () => {
     const history = createMemoryHistory({ initialEntries: ['/'] })
 
     render(
-      <HistoryRouter history={history}>
+      <Router location={history.location} navigator={history}>
         <App />
-      </HistoryRouter>,
+      </Router>,
     )
 
     expect(mockPageContainer.mock.calls.length).toBe(1)
@@ -38,9 +38,9 @@ describe('<App />', () => {
     const history = createMemoryHistory({ initialEntries: ['/posts/1'] })
 
     render(
-      <HistoryRouter history={history}>
+      <Router location={history.location} navigator={history}>
         <App />
-      </HistoryRouter>,
+      </Router>,
     )
 
     expect(mockPageContainer.mock.calls.length).toBe(1)

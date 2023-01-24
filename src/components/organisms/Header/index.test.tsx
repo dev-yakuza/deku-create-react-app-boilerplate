@@ -1,9 +1,6 @@
 import { render, screen, fireEvent } from '@testing-library/react'
 import { createMemoryHistory } from 'history'
-import {
-  BrowserRouter,
-  unstable_HistoryRouter as HistoryRouter,
-} from 'react-router-dom'
+import { BrowserRouter, Router } from 'react-router-dom'
 import { mockAppBar } from 'utils/test'
 
 import { Header } from '.'
@@ -48,9 +45,9 @@ describe('<Header />', () => {
     history.push = mockPush
 
     render(
-      <HistoryRouter history={history}>
+      <Router location={history.location} navigator={history}>
         <Header />
-      </HistoryRouter>,
+      </Router>,
     )
 
     fireEvent.click(screen.getByText('Blog App'))
