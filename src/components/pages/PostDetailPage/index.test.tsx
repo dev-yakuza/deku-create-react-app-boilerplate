@@ -1,11 +1,7 @@
 import { render } from '@testing-library/react'
 import mockPostData from 'api/posts/mockData/post.json'
 import { createMemoryHistory } from 'history'
-import {
-  Routes,
-  Route,
-  unstable_HistoryRouter as HistoryRouter,
-} from 'react-router-dom'
+import { Routes, Route, Router } from 'react-router-dom'
 import type { Post } from 'types'
 import { mockBlogDetail } from 'utils/test'
 
@@ -27,11 +23,11 @@ describe('<PostDetailPage />', () => {
     mockResponse = { data: mockPostData }
 
     const { container } = render(
-      <HistoryRouter history={history}>
+      <Router location={history.location} navigator={history}>
         <Routes>
           <Route path="/posts/:id" element={<PostDetailPage />} />
         </Routes>
-      </HistoryRouter>,
+      </Router>,
     )
 
     expect(mockBlogDetail.mock.calls.length).toBe(1)
@@ -44,11 +40,11 @@ describe('<PostDetailPage />', () => {
     mockResponse = { data: undefined }
 
     const { container } = render(
-      <HistoryRouter history={history}>
+      <Router location={history.location} navigator={history}>
         <Routes>
           <Route path="/posts/:id" element={<PostDetailPage />} />
         </Routes>
-      </HistoryRouter>,
+      </Router>,
     )
 
     expect(mockBlogDetail.mock.calls.length).toBe(1)
@@ -62,11 +58,11 @@ describe('<PostDetailPage />', () => {
     history = createMemoryHistory({ initialEntries: ['/posts/aaa'] })
 
     render(
-      <HistoryRouter history={history}>
+      <Router location={history.location} navigator={history}>
         <Routes>
           <Route path="/posts/:id" element={<PostDetailPage />} />
         </Routes>
-      </HistoryRouter>,
+      </Router>,
     )
 
     expect(mockBlogDetail.mock.calls.length).toBe(1)

@@ -1,10 +1,7 @@
 import AddIcon from '@mui/icons-material/Add'
 import { render, screen, fireEvent } from '@testing-library/react'
 import { createMemoryHistory } from 'history'
-import {
-  BrowserRouter,
-  unstable_HistoryRouter as HistoryRouter,
-} from 'react-router-dom'
+import { BrowserRouter, Router } from 'react-router-dom'
 import { mockLink } from 'utils/test'
 
 import { FloatingActionLink } from '.'
@@ -72,9 +69,9 @@ describe('<FloatingActionLink />', () => {
     history.push = mockPush
 
     render(
-      <HistoryRouter history={history}>
+      <Router location={history.location} navigator={history}>
         <FloatingActionLink link="/posts/add">Add</FloatingActionLink>,
-      </HistoryRouter>,
+      </Router>,
     )
 
     fireEvent.click(screen.getByText('Add'))

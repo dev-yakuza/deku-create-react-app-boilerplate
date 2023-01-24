@@ -1,9 +1,6 @@
 import { fireEvent, render, screen } from '@testing-library/react'
 import { createMemoryHistory } from 'history'
-import {
-  BrowserRouter,
-  unstable_HistoryRouter as HistoryRouter,
-} from 'react-router-dom'
+import { BrowserRouter, Router } from 'react-router-dom'
 import { mockToolbar, mockGrid } from 'utils/test'
 
 import { BlogDetail } from '.'
@@ -100,7 +97,7 @@ describe('<BlogDetail />', () => {
     history.push = mockPush
 
     render(
-      <HistoryRouter history={history}>
+      <Router location={history.location} navigator={history}>
         <BlogDetail
           post={{
             userId: 1,
@@ -110,7 +107,7 @@ describe('<BlogDetail />', () => {
           }}
         />
         ,
-      </HistoryRouter>,
+      </Router>,
     )
 
     fireEvent.click(screen.getByText('Posts'))

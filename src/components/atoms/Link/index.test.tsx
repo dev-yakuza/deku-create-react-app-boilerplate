@@ -1,9 +1,6 @@
 import { render, screen, fireEvent } from '@testing-library/react'
 import { createMemoryHistory } from 'history'
-import {
-  BrowserRouter,
-  unstable_HistoryRouter as HistoryRouter,
-} from 'react-router-dom'
+import { BrowserRouter, Router } from 'react-router-dom'
 
 import { Link } from '.'
 
@@ -30,9 +27,9 @@ describe('<Link />', () => {
     history.push = mockPush
 
     render(
-      <HistoryRouter history={history}>
+      <Router location={history.location} navigator={history}>
         <Link to="/posts/1">test link</Link>
-      </HistoryRouter>,
+      </Router>,
     )
 
     fireEvent.click(screen.getByText('test link'))
