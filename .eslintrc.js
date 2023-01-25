@@ -26,7 +26,7 @@ module.exports = {
   },
   rules: {
     // General
-    'no-console': 'error',
+    'no-console': ['error', { allow: ['debug', 'warn', 'error'] }],
     // TypeScript
     '@typescript-eslint/consistent-type-imports': 'error',
     '@typescript-eslint/explicit-function-return-type': 'off',
@@ -93,7 +93,7 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
     // Functional
     'functional/prefer-readonly-type': [
-      'warn',
+      'error',
       {
         allowLocalMutation: true,
         allowMutableReturnType: true,
@@ -120,5 +120,9 @@ module.exports = {
       },
     ],
     'react/react-in-jsx-scope': 'off',
+    'linebreak-style': ['error', 'unix'],
+    eqeqeq: ['error', 'always', { null: 'ignore' }],
+    camelcase: ['error', { properties: 'never', allow: ['_UNSTABLE'] }],
+    quotes: ['error', 'single', { avoidEscape: true }],
   },
 }
