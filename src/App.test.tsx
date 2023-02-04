@@ -1,10 +1,9 @@
 import { render } from '@testing-library/react'
-import mockPostData from 'api/posts/mockData/post.json'
-import mockPostsData from 'api/posts/mockData/posts.json'
 import { createMemoryHistory } from 'history'
 import { Router } from 'react-router-dom'
 import {
   mockBlogListPage,
+  mockCreateBlogPostPage,
   mockHeader,
   mockPageContainer,
   mockPostDetailPage,
@@ -13,8 +12,9 @@ import {
 import App from './App'
 
 jest.mock('api/posts', () => ({
-  useGetPosts: () => mockPostsData,
-  useGetPost: () => mockPostData,
+  useGetPosts: jest.fn,
+  useGetPost: jest.fn,
+  useCreatePost: jest.fn,
 }))
 
 describe('<App />', () => {
@@ -32,6 +32,7 @@ describe('<App />', () => {
 
     expect(mockBlogListPage.mock.calls.length).toBe(1)
     expect(mockPostDetailPage.mock.calls.length).toBe(0)
+    expect(mockCreateBlogPostPage.mock.calls.length).toBe(0)
   })
 
   test('/posts/:id', () => {
@@ -48,5 +49,23 @@ describe('<App />', () => {
 
     expect(mockBlogListPage.mock.calls.length).toBe(0)
     expect(mockPostDetailPage.mock.calls.length).toBe(1)
+    expect(mockCreateBlogPostPage.mock.calls.length).toBe(0)
+  })
+
+  test('/posts/add', () => {
+    const history = createMemoryHistory({ initialEntries: ['/posts/add'] })
+
+    render(
+      <Router location={history.location} navigator={history}>
+        <App />
+      </Router>,
+    )
+
+    expect(mockPageContainer.mock.calls.length).toBe(1)
+    expect(mockHeader.mock.calls.length).toBe(1)
+
+    expect(mockBlogListPage.mock.calls.length).toBe(0)
+    expect(mockPostDetailPage.mock.calls.length).toBe(0)
+    expect(mockCreateBlogPostPage.mock.calls.length).toBe(1)
   })
 })
