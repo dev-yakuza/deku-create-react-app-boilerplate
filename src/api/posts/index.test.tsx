@@ -1,16 +1,18 @@
 import { QueryClientProvider } from '@tanstack/react-query'
-import type { UseQueryResult, UseMutationResult } from '@tanstack/react-query'
 import { act, renderHook, waitFor } from '@testing-library/react'
 import axios from 'axios'
-import type { AxiosError } from 'axios'
 import MockAdapter from 'axios-mock-adapter'
-import type { Post } from 'types'
 import { queryClient } from 'utils/test'
 
-import type { CreatePostParams } from './index'
-import { useGetPosts, useGetPost, useCreatePost } from './index'
 import mockPostData from './mockData/post.json'
 import mockPostsData from './mockData/posts.json'
+
+import type { CreatePostParams } from './index'
+import type { UseQueryResult, UseMutationResult } from '@tanstack/react-query'
+import type { AxiosError } from 'axios'
+import type { Post } from 'types'
+
+import { useGetPosts, useGetPost, useCreatePost } from './index'
 
 const mockAxios = new MockAdapter(axios)
 

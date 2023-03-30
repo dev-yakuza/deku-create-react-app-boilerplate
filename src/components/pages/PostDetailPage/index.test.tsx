@@ -2,8 +2,9 @@ import { render } from '@testing-library/react'
 import mockPostData from 'api/posts/mockData/post.json'
 import { createMemoryHistory } from 'history'
 import { Routes, Route, Router } from 'react-router-dom'
-import type { Post } from 'types'
 import { mockBlogDetail } from 'utils/test'
+
+import type { Post } from 'types'
 
 import { PostDetailPage } from '.'
 

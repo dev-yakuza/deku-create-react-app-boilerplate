@@ -2,8 +2,9 @@ import { QueryClientProvider } from '@tanstack/react-query'
 import { render } from '@testing-library/react'
 import mockPostsData from 'api/posts/mockData/posts.json'
 import { BrowserRouter } from 'react-router-dom'
-import type { Post } from 'types'
 import { queryClient, mockBlogList, mockPageLoading } from 'utils/test'
+
+import type { Post } from 'types'
 
 import { BlogListPage } from '.'
 

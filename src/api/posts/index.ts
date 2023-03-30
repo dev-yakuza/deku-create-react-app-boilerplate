@@ -1,6 +1,7 @@
 import { useMutation, useQuery } from '@tanstack/react-query'
-import type { AxiosError } from 'axios'
 import axios from 'axios'
+
+import type { AxiosError } from 'axios'
 import type { Post } from 'types'
 
 const POSTS_URL = `${process.env.REACT_APP_API_SERVER}/posts`
