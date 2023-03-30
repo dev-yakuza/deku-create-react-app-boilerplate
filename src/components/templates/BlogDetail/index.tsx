@@ -9,6 +9,7 @@ import {
 } from '@mui/material'
 import { styled } from '@mui/system'
 import { useNavigate } from 'react-router-dom'
+
 import type { Post } from 'types'
 
 const Container = styled(Grid)`
