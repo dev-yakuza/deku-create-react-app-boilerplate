@@ -1,7 +1,7 @@
 import { fireEvent, render, screen } from '@testing-library/react'
 import { createMemoryHistory } from 'history'
 import { BrowserRouter, Router } from 'react-router-dom'
-import { mockToolbar, mockGrid } from 'utils/test'
+import { mockGrid, mockToolbar } from 'utils/test'
 
 import { BlogDetail } from '.'
 

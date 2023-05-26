@@ -1,7 +1,7 @@
 import { errorMessageState } from 'data/ErrorMessage'
 import { RecoilRoot, useSetRecoilState } from 'recoil'
 
-import type { ComponentStory, ComponentMeta } from '@storybook/react'
+import type { ComponentMeta, ComponentStory } from '@storybook/react'
 
 import { ErrorMessage } from '.'
 
