@@ -4,7 +4,7 @@
 // learn more: https://github.com/testing-library/jest-dom
 import '@testing-library/jest-dom'
 
-import { matchers, createSerializer } from '@emotion/jest'
+import { createSerializer, matchers } from '@emotion/jest'
 expect.extend(matchers)
 expect.addSnapshotSerializer(createSerializer())
 

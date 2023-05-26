@@ -1,4 +1,4 @@
-import { render, screen, fireEvent } from '@testing-library/react'
+import { fireEvent, render, screen } from '@testing-library/react'
 import { createMemoryHistory } from 'history'
 import { BrowserRouter, Router } from 'react-router-dom'
 import { mockGrid } from 'utils/test'

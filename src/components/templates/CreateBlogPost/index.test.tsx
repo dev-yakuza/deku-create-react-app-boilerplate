@@ -3,7 +3,7 @@ import { act } from 'react-dom/test-utils'
 import { fireEvent, render, screen } from '@testing-library/react'
 import { createMemoryHistory } from 'history'
 import { BrowserRouter, Router } from 'react-router-dom'
-import { mockToolbar, mockGrid, mockTextField } from 'utils/test'
+import { mockGrid, mockTextField, mockToolbar } from 'utils/test'
 
 import { CreateBlogPost } from '.'
 
