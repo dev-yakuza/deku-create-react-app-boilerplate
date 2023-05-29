@@ -104,7 +104,7 @@
     "storybook-addon-react-router-v6": "^1.0.1",
     "stylelint": "^15.2.0",
     "stylelint-config-prettier": "^9.0.3",
-    "stylelint-config-standard": "^29.0.0",
+    "stylelint-config-standard": "^33.0.0",
     "webpack": "^5.76.3"
   },
   "remarkConfig": {
