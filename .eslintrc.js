@@ -18,7 +18,7 @@ module.exports = {
     sourceType: 'module',
     project: './tsconfig.json',
   },
-  plugins: ['react', '@typescript-eslint', 'functional', 'import'],
+  plugins: ['react', '@typescript-eslint', 'functional', 'import', 'no-null'],
   settings: {
     react: {
       version: 'detect',
@@ -141,5 +141,8 @@ module.exports = {
     eqeqeq: ['error', 'always', { null: 'ignore' }],
     camelcase: ['error', { properties: 'never', allow: ['_UNSTABLE'] }],
     quotes: ['error', 'single', { avoidEscape: true }],
+    'no-null/no-null': 2,
+    curly: ['error', 'multi-line', 'consistent'],
+    'nonblock-statement-body-position': ['error', 'beside'],
   },
 }

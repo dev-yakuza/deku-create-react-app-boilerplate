@@ -24,7 +24,7 @@ jest.mock('api/posts', () => ({
   }) => ({
     mutate: ({ userId, title, description }: CreatePostParams) => {
       if (mockAPISuccess) {
-        if (onSuccess != null) {
+        if (onSuccess !== undefined) {
           mockIsCalledOnSuccess = true
           onSuccess({
             userId,
@@ -34,7 +34,7 @@ jest.mock('api/posts', () => ({
           })
         }
       } else {
-        if (onError != null) {
+        if (onError !== undefined) {
           mockIsCalledOnError = true
           onError(new Error('Error') as AxiosError)
         }
