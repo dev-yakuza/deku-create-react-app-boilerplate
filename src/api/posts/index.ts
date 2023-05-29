@@ -36,14 +36,14 @@ export const useGetPost = ({ id }: GetPostParams) => {
   const postID =
     typeof id === 'string' && !isNaN(Number.parseInt(id))
       ? Number.parseInt(id)
-      : null
+      : undefined
 
   return useQuery(
     ['GetPost', id],
     async () => getPost({ postID: postID as number }),
     {
       refetchOnWindowFocus: false,
-      enabled: postID != null,
+      enabled: postID !== undefined,
     },
   )
 }
