@@ -1,3 +1,15 @@
+I use this project to create the `create-react-app` template.
+
+- cra-template-deku: https://github.com/dev-yakuza/cra-template-deku
+
+You can create a `React` project by executing the following `create-react-app` command with my template.
+
+```bash
+npx create-react-app [YOUR_PROJECT_NAME] --template deku
+```
+
+I will only maintain the template, so I archive this project.
+
 # Deku Create React App Boilerplate
 
 This project uses the followings:
